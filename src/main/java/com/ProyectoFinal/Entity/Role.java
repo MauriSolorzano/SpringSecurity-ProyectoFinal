@@ -8,6 +8,7 @@ import java.util.Set;
 @Entity
 public class Role {
     private Long id;
+    private String roleName;
     private String rolePermission;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
@@ -18,8 +19,9 @@ public class Role {
     public Role() {
     }
 
-    public Role(Long id, String rolePermission, Set<Permission> permissions) {
+    public Role(Long id, String roleName, String rolePermission, Set<Permission> permissions) {
         this.id = id;
+        this.roleName = roleName;
         this.rolePermission = rolePermission;
         this.permissions = permissions;
     }
@@ -30,6 +32,14 @@ public class Role {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getRoleName() {
+        return roleName;
+    }
+
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
     }
 
     public String getRolePermission() {

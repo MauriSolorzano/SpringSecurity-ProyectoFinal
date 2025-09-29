@@ -32,7 +32,6 @@ public class PermissionService {
     // Metodo para listar permisos
     public List<Permission> permissionList(){
         List<Permission> permissions = permissionRepository.findAll();
-
         if (permissions.isEmpty()){
             throw new NoSuchElementException("No hay permisos registrados");
         }
